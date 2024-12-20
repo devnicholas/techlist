@@ -1,5 +1,14 @@
-import "dotenv/config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import { config } from "dotenv";
 import { Client } from "@notionhq/client";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+config({
+  path: __dirname + "/.env",
+});
 
 const params = process.argv.slice(2);
 
